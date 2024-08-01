@@ -1,13 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router } from 'react-router-dom';
-import App from './App.jsx'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import App from './App';
 import './index.css'
 
+const clientId = 'YOUR_GOOGLE_CLIENT_ID'; // Replace with your actual Google Client ID
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.render(
+  <GoogleOAuthProvider clientId={clientId}>
     <App />
-  </React.StrictMode>,
-)
-
+  </GoogleOAuthProvider>,
+  document.getElementById('root')
+);
