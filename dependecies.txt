@@ -1,0 +1,13 @@
+tailwind
+npm install -D tailwindcss
+npx tailwindcss init
+npm install @sanity/client
+npm install @sanity/image-url
+npm install react/google-login
+react-icons
+react-loader-spinner
+react-masonry-css
+react-router-dom
+
+npm install @sanity/client @sanity/image-url react-icons react-loader-spinner react-masonry-css react-router-dom
+
