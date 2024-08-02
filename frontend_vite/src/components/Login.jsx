@@ -8,10 +8,22 @@ import logo from "../assets/logowhite.png";
 const Login = () => {
   const navigate = useNavigate();
 
-  const handleLoginSuccess = (credentialResponse) => {
-    console.log('Login Success:', credentialResponse);
-    // Add any additional login success logic here
-    navigate('/dashboard'); // Replace with the route you want to navigate to after login
+  // const googleResponse = (credentialResponse) => {
+  //   console.log('Login Success:', credentialResponse);
+  // };
+
+  const googleResponse = (credentialResponse) => {
+    localStorage.setItem('user', JSON.stringify(credentialResponse.ProfileObj))
+
+    const { name, googleId, imageUrl } = credentialResponse.ProfileObj;
+    // value to be created in sanity 
+
+    const doc = {
+      _id: googleId,
+      _type: 'user',
+      username: name,
+      image: imageUrl
+    }
   };
 
   const handleLoginFailure = (error) => {
@@ -37,8 +49,8 @@ const Login = () => {
           </div>
           <div className="shadow-2xl">
             <GoogleLogin
-            clientId= ''
-              onSuccess={handleLoginSuccess}
+            clientId= {import.meta.env.VITE_REACT_APP_GOOGLE_API_TOKEN}
+              onSuccess={googleResponse}
               onFailure={handleLoginFailure}
               cookiePolicy = "single_host_origin"
               render={(renderProps) => (
@@ -60,3 +72,4 @@ const Login = () => {
 }
 
 export default Login;
+
