@@ -1,6 +1,9 @@
 tailwind
 npm install -D tailwindcss
 npx tailwindcss init
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
 npm install @sanity/client
 npm install @sanity/image-url
 npm install react/google-login
